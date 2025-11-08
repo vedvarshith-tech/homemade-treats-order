@@ -232,7 +232,11 @@
         <div class="order-form">
             <h2 style="margin-bottom: 20px; color: #333;">Place Your Order</h2>
             
-            <form id="orderForm">
+                        <form id="orderForm" action="https://formsubmit.co/youremail@example.com" method="POST">
+                                            <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="New Order from Homemade Treats!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
                 <div class="form-group">
                     <label for="product">Select Product:</label>
                     <select id="product" required>
@@ -306,7 +310,8 @@
                     </select>
                 </div>
 
-                <button type="button" class="order-button" onclick="placeOrder()">Place Order 🛒</button>
+                <button type="submit" class="order-button" >Place Order 🛒</button>235
+                            
             </form>
         </div>
 

@@ -322,9 +322,8 @@
 
         <div class="support">
             <h3>Need Help?</h3>
-            <p>Contact us: <strong>support@homemadetreats.com</strong></p>
-            <p>Phone: <strong>+91 9876543210</strong></p>
-        </div>
+                <p>Contact us: <strong>ved.chinnamgari@gmail.com</strong></p>
+            <p>Phone: <strong>+919845311700</strong></p>        </div>
 
         <footer>
             <p>&copy; 2024 Homemade Treats. Made with ❤️</p>
@@ -383,6 +382,10 @@
                 const quantity = document.getElementById('quantity').value;
                 const name = document.getElementById('name').value;
                 const total = document.getElementById('totalAmount').textContent;
+                        const email = document.getElementById('email').value;
+                        const phone = document.getElementById('phone').value;
+                        const address = document.getElementById('address').value;
+                        const delivery = document.getElementById('delivery').value;
                 
                 let productName = product === 'prownie' ? 'Prownie' : 'Cupcake';
                 let flavor = '';
@@ -390,7 +393,7 @@
                     flavor = ' (' + document.getElementById('flavor').value + ')';
                 }
                 
-                alert(`✅ Order Confirmed!\n\nThank you, ${name}!\n\nOrder: ${quantity}x ${productName}${flavor}\nTotal: ${total}\n\nWe'll call you when your order is ready with the delivery address!`);
+        alert(`✅ Order Confirmed!\n\nThank you, ${name}!\n\nOrder Details:\n• Product: ${quantity}x ${productName}${flavor}\n• Email: ${email}\n• Phone: ${phone}\n• Delivery Address: ${address}\n• Delivery Option: ${delivery === 'pickup' ? 'Pickup - Free' : delivery === 'standard' ? 'Standard Delivery - ₹30' : 'Instant Delivery - ₹50'}\n• Total: ${total}\n\nWe'll call you when your order is ready!`);
             } else {
                 form.reportValidity();
             }

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Homemade Treats - Prownies & Cupcakes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding-bottom: 30px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .notification {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            margin: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .order-form {
+            padding: 0 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .price-breakdown {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .total-price {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #4CAF50;
+            border-top: 2px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .order-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+
+        .order-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
+        }
+
+        .order-button:active {
+            transform: translateY(0);
+        }
+
+        .support {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .support h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .allergen-info {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            margin: 20px 30px;
+            border-radius: 10px;
+        }
+
+        .allergen-info h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .allergen-info p {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        #flavorGroup {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍰 Homemade Treats 🍰</h1>
+            <p class="subtitle">Delicious Prownies & Cupcakes Made Fresh Daily</p>
+        </header>
+
+        <div class="products">
+            <div class="product-card">
+                <h3>Premium Prownies</h3>
+                <p>A unique hybrid of brownie and pancake, topped with delicious white chocolate chips</p>
+                <p class="price">₹50 each</p>
+            </div>
+            <div class="product-card">
+                <h3>Delicious Cupcakes</h3>
+                <p>Soft and fluffy cupcakes available in Vanilla and Chocolate flavors</p>
+                <p class="price">₹40 each</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            📞 We'll call you when your order is ready with the delivery address!
+        </div>
+
+        <div class="order-form">
+            <h2 style="margin-bottom: 20px; color: #333;">Place Your Order</h2>
+            
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="product">Select Product:</label>
+                    <select id="product" required>
+                        <option value="">Choose a product...</option>
+                        <option value="prownie">Premium Prownie - ₹50</option>
+                        <option value="cupcake">Delicious Cupcake - ₹40</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="flavorGroup">
+                    <label for="flavor">Select Flavor:</label>
+                    <select id="flavor">
+                        <option value="vanilla">Vanilla</option>
+                        <option value="chocolate">Chocolate</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" min="1" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="delivery">Delivery Option:</label>
+                    <select id="delivery" required>
+                        <option value="pickup">Pickup - Free</option>
+                        <option value="standard">Standard Delivery - ₹30</option>
+                        <option value="instant">Instant Delivery - ₹50</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Delivery Address:</label>
+                    <textarea id="address" rows="3" required></textarea>
+                </div>
+
+                <div class="price-breakdown">
+                    <div class="price-row">
+                        <span>Product Total:</span>
+                        <span id="productTotal">₹0</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Delivery Fee:</span>
+                        <span id="deliveryFee">₹0</span>
+                    </div>
+                    <div class="price-row total-price">
+                        <span>Total Amount:</span>
+                        <span id="totalAmount">₹0</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment">Payment Method:</label>
+                    <select id="payment" required>
+                        <option value="cash">Cash/UPI on Delivery</option>
+                    </select>
+                </div>
+
+                <button type="button" class="order-button" onclick="placeOrder()">Place Order 🛒</button>
+            </form>
+        </div>
+
+        <div class="allergen-info">
+            <h3>⚠️ Allergen Information</h3>
+            <p><strong>Contains: Dairy and Gluten</strong></p>
+        </div>
+
+        <div class="support">
+            <h3>Need Help?</h3>
+            <p>Contact us: <strong>support@homemadetreats.com</strong></p>
+            <p>Phone: <strong>+91 9876543210</strong></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Homemade Treats. Made with ❤️</p>
+        </footer>
+    </div>
+
+    <script>
+        // Show flavor selector only for cupcakes
+        document.getElementById('product').addEventListener('change', function() {
+            const flavorGroup = document.getElementById('flavorGroup');
+            if (this.value === 'cupcake') {
+                flavorGroup.style.display = 'block';
+            } else {
+                flavorGroup.style.display = 'none';
+            }
+            calculatePrice();
+        });
+
+        // Calculate price on quantity or delivery change
+        document.getElementById('quantity').addEventListener('input', calculatePrice);
+        document.getElementById('delivery').addEventListener('change', calculatePrice);
+
+        function calculatePrice() {
+            const product = document.getElementById('product').value;
+            const quantity = parseInt(document.getElementById('quantity').value) || 0;
+            const delivery = document.getElementById('delivery').value;
+
+            let productPrice = 0;
+            if (product === 'prownie') {
+                productPrice = 50;
+            } else if (product === 'cupcake') {
+                productPrice = 40;
+            }
+
+            const productTotal = productPrice * quantity;
+            
+            let deliveryFee = 0;
+            if (delivery === 'standard') {
+                deliveryFee = 30;
+            } else if (delivery === 'instant') {
+                deliveryFee = 50;
+            }
+
+            const total = productTotal + deliveryFee;
+
+            document.getElementById('productTotal').textContent = '₹' + productTotal;
+            document.getElementById('deliveryFee').textContent = '₹' + deliveryFee;
+            document.getElementById('totalAmount').textContent = '₹' + total;
+        }
+
+        function placeOrder() {
+            const form = document.getElementById('orderForm');
+            
+            if (form.checkValidity()) {
+                const product = document.getElementById('product').value;
+                const quantity = document.getElementById('quantity').value;
+                const name = document.getElementById('name').value;
+                const total = document.getElementById('totalAmount').textContent;
+                
+                let productName = product === 'prownie' ? 'Prownie' : 'Cupcake';
+                let flavor = '';
+                if (product === 'cupcake') {
+                    flavor = ' (' + document.getElementById('flavor').value + ')';
+                }
+                
+                alert(`✅ Order Confirmed!\n\nThank you, ${name}!\n\nOrder: ${quantity}x ${productName}${flavor}\nTotal: ${total}\n\nWe'll call you when your order is ready with the delivery address!`);
+            } else {
+                form.reportValidity();
+            }
+        }
+    </script>
+</body>
+</html>

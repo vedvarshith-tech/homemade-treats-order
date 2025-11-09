@@ -263,9 +263,10 @@
                     <label for="delivery">Delivery Option:</label>
                     <select id="delivery" name="Delivery_Option" required>
                         <option value="pickup">Pickup - Free</option>
-                        <option value="standard">Standard Delivery - ₹30</option>
-                        <option value="instant">Instant Delivery - ₹50</option>
+                        <option value="standard">Standard Delivery (Under 1 hr) - ₹30</option>
+                        <option value="instant">SInstant Delivery (Under 30 mins) - ₹50</option>
                     </select>
+                                    <p style="font-size: 0.9em; color: #666; margin-top: 10px;">⏰ <strong>Delivery Guarantee:</strong> If not delivered within the time frame, delivery charge is FREE!</p>
                 </div>
 
                 <div class="form-group">
@@ -393,7 +394,7 @@
                     flavor = ' (' + document.getElementById('flavor').value + ')';
                 }
                 
-        alert(`✅ Order Confirmed!\n\nThank you, ${name}!\n\nOrder Details:\n• Product: ${quantity}x ${productName}${flavor}\n• Email: ${email}\n• Phone: ${phone}\n• Delivery Address: ${address}\n• Delivery Option: ${delivery === 'pickup' ? 'Pickup - Free' : delivery === 'standard' ? 'Standard Delivery - ₹30' : 'Instant Delivery - ₹50'}\n• Total: ${total}\n\nWe'll call you when your order is ready!`);
+        alert(`✅ Order Confirmed!\n\nThank you, ${name}!\n\nOrder Details:\n• Product: ${quantity}x ${productName}${flavor}\n• Email: ${email}\n• Phone: ${phone}\n• Delivery Address: ${address}\n• Delivery Option: ${delivery === 'pickup' ? 'Pickup - Free' : delivery === 'standard' ? 'Standard Delivery (Under 1 hr) - ₹30' : 'Standard DelInstant Delivery (Under 30 mins) - ₹50ivery (Under 1 hr) - ₹30'}\n• Total: ${total}\n\nWe'll call you when your order is ready!`);
             } else {
                 form.reportValidity();
             }
